@@ -1,12 +1,24 @@
-import React, {Fragment} from 'react';
-import './App.css';
+import React from 'react';
+import Nav from './layout/Nav';
+import Footer from './layout/Footer';
+import Routes from './config/Routes';
 
-const App = () =>  {
-  return (
-   <Fragment>
-     <h1>App</h1>
-   </Fragment>
-  );
+import './bulma.css';
+import './index.css';
+// Maintain State here
+class App extends React.Component{
+  state = {};
+
+  render(){
+    return (
+      <div className="container">
+        <Nav />
+        <Routes />
+        <Footer />
+      </div>    
+    
+    );
+  }
 }
 
 export default App;
