@@ -1,20 +1,20 @@
 import React from 'react';
 import Nav from './layout/Nav';
-import Footer from './layout/Footer';
+// import Footer from './layout/Footer';
 import Routes from './config/Routes';
-
 import './bulma.css';
 import './index.css';
 // Maintain State here
 class App extends React.Component{
+
   state = {};
 
   render(){
     return (
-      <div className="container">
+      <div className="App-content">
         <Nav />
         <Routes />
-        <Footer />
+        {/* <Footer /> */}
       </div>    
     
     );

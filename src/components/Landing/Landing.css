@@ -1,0 +1,12 @@
+.Landing {
+    width: 90vw;
+    margin: 0 auto;
+    border: 2px solid chartreuse;
+}
+.Landing-CTA {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+

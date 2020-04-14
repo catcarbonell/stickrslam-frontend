@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return(
-        <div className="Footer">
+        <footer className="footer is-centered has-text-centered">
             <h1>Footer Component</h1>
-        </div>
+        </footer>
     )
 }
 
