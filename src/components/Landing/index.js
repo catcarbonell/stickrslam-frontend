@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Landing.css';
 
 const Landing = () => {
@@ -11,7 +12,7 @@ const Landing = () => {
                 <p className="subtitle is-5">We <strike>might</strike> have cookies.</p>
                 <div className="container Landing-CTA">
                     <button className="button btn has-text-center">Sign up!</button>
-                    <p>Have an account already? <span>Login</span>!</p>
+                    <p>Have an account already? <Link to="/login">Login</Link>!</p>
                 </div>
             </div>
         </div>

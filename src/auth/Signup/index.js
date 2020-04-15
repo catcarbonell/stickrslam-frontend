@@ -1,22 +1,50 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import './Signup.css';
 
 const Signup = () => {
-    const [formData, setFormData] = useState({
-        username: '',
-        email: '',
-        password: '',
-        password2: ''
-    });
+    const [formData, setFormData] = 
+        useState({
+            username: '',
+            email: '',
+            password: '',
+            password2: ''
+        }
+    );
     const { username, email, password, password2 } = formData;
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value });
+    const onSubmit = async e => {
+        e.preventDefault();
+        if(password !== password2){
+            console.log('Passwords do not match')
+        } else {
+            const newUser = {
+                username,
+                email,
+                password
+            }
+            try {
+                const config = {
+                    headers: {
+                        "Content-Type" : "application/json"
+                    }
+                }   
+                const body = JSON.stringify(newUser);
+                const res = await axios.post('http://localhost:5000/api/users', body, config)
+                console.log(res.data);
+            } catch(err) {
+                console.error(err.response.data);
+            }
+        }
+    }
 
     return(
         <div className="content Signup">
-            <h1>Join us!</h1>
-            <p>You'll love it here!</p>
-            <form className="form">
+            <h2 className="title is-2">Join us!</h2>
+            <p className="subtitle is-5">You'll love it here!</p>
+
+            <form className="form" onSubmit={ e => onSubmit(e)}>
                 {/* USERNAME FIELD */}
                 <div className="field">
                     <label className="label" name="username"> Username/Alias</label>
@@ -81,12 +109,14 @@ const Signup = () => {
                     </div>
                     <p className="is-danger">validation errors go here</p>
                 </div>
-
-                
-
-                <button className="button" type="submit">Sign Up!</button>
-
+                <div className="container cta-container">
+                    <button className="button" type="submit">Sign Up!</button>
+                    <p>
+                        Already have an account? <Link to="/login">Login!</Link>
+                    </p>
+                </div>
             </form>
+            
         </div>
         
     )

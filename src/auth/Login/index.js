@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Login.css';
 
 const Login = () => {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+    const { email, password } = formData;
+    const onChange = e => setFormData({...formData, [e.target.name]: e.target.value });
+    const onSubmit = async e => {
+        e.preventDefault();
+        console.log('Success!');
+    }
     return(
         <div className="content Login">
-            <h1>Login form</h1>
-            <form className="form">
+            <h2 className="title is-2">Welcome back!</h2>
+            <form className="form" onSubmit={ e => onSubmit(e)}>
                 {/* EMAIL FIELD */}
                 <div className="field">
                     <label className="label">Email</label>
                     <div className="control">
-                        <input className="input" type="email" placeholder="ex: you@you.com"></input>
+                        <input 
+                            className="input" 
+                            name="email" 
+                            type="email" 
+                            placeholder="ex: you@you.com"
+                            value={email}
+                            onChange={e => onChange(e)}
+                            required
+                        />
                     </div>
                     <p className="is-danger">validation errors go here</p>
                 </div>
@@ -17,14 +37,23 @@ const Login = () => {
                 <div className="field">
                     <label className="label">Password</label>
                     <div className="control">
-                        <input className="input" type="password"></input>
+                        <input 
+                            className="input" 
+                            name="password" 
+                            type="password"
+                            value={password}
+                            onChange={e => onChange(e)}
+                            required
+                        />
                     </div>
                     <p className="is-danger">validation errors go here</p>
                 </div>
-
-                <button className="button" type="submit">Login!</button>
-
+                <div className="container cta-container">
+                    <button className="button" type="submit">Login!</button>
+                    <p>Don't have  an account? <Link to="/signup">Sign up!</Link></p>
+                </div>     
             </form>
+            
         </div>
     );
 };
