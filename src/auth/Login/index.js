@@ -14,7 +14,7 @@ const Login = () => {
         console.log('Success!');
     }
     return(
-        <div className="content Login">
+        <div className="Login">
             <h2 className="title is-2">Welcome back!</h2>
             <form className="form" onSubmit={ e => onSubmit(e)}>
                 {/* EMAIL FIELD */}
@@ -31,7 +31,6 @@ const Login = () => {
                             required
                         />
                     </div>
-                    <p className="is-danger">validation errors go here</p>
                 </div>
 
                 <div className="field">
@@ -46,7 +45,6 @@ const Login = () => {
                             required
                         />
                     </div>
-                    <p className="is-danger">validation errors go here</p>
                 </div>
                 <div className="container cta-container">
                     <button className="button" type="submit">Login!</button>

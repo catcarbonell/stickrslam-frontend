@@ -1,7 +1,6 @@
 .Landing {
     width: 90vw;
-    margin: 0 auto;
-    /* border: 2px solid chartreuse; */
+    margin: auto;
 }
 .Landing-CTA {
     display: flex;
@@ -10,3 +9,7 @@
     align-items: center;
 }
 
+a.btn-link {
+    color: #5b4676;
+    background-color: transparent;
+}

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setAlert } from '../../actions/alert';
+import PropTypes from 'prop-types';
+
 import axios from 'axios';
 import './Signup.css';
 
-const Signup = () => {
+const Signup = ({ setAlert }) => {
     const [formData, setFormData] = 
         useState({
             username: '',
@@ -17,7 +21,7 @@ const Signup = () => {
     const onSubmit = async e => {
         e.preventDefault();
         if(password !== password2){
-            console.log('Passwords do not match')
+            setAlert('Passwords do not match', 'danger')
         } else {
             const newUser = {
                 username,
@@ -42,8 +46,8 @@ const Signup = () => {
     return(
         <div className="content Signup">
             <h2 className="title is-2">Join us!</h2>
+            <br />
             <p className="subtitle is-5">You'll love it here!</p>
-
             <form className="form" onSubmit={ e => onSubmit(e)}>
                 {/* USERNAME FIELD */}
                 <div className="field">
@@ -59,7 +63,7 @@ const Signup = () => {
                             required
                         />
                     </div>
-                    <p className="is-danger">validation errors go here</p>
+                   {/* validation errors go here  */}
                 </div>
 
                 {/* EMAIL FIELD */}
@@ -76,7 +80,6 @@ const Signup = () => {
                             required 
                         />
                     </div>
-                    <p className="is-danger">validation errors go here</p>
                 </div>
 
                 {/* PASSWORD FIELD */}
@@ -92,7 +95,6 @@ const Signup = () => {
                             required
                         />
                     </div>
-                    <p className="is-danger">validation errors go here</p>
                 </div>
 
                 {/* PASSWORD CONFIRM  */}
@@ -107,7 +109,6 @@ const Signup = () => {
                             onChange={e => onChange(e)}
                         />
                     </div>
-                    <p className="is-danger">validation errors go here</p>
                 </div>
                 <div className="container cta-container">
                     <button className="button" type="submit">Sign Up!</button>
@@ -122,4 +123,8 @@ const Signup = () => {
     )
 };
 
-export default Signup;
+Signup.propTypes = {
+    setAlert : PropTypes.func.isRequired,
+}
+
+export default connect(null, { setAlert })(Signup);

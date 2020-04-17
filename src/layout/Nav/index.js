@@ -3,16 +3,17 @@ import { Link } from 'react-router-dom';
 import './Nav.css';
 
 const Nav = () => {
+
     return(
-        <nav className="navbar Nav">
-            <div className="navbar-end">
-                <Link to="/stickers" className="navbar-item">Sticker Pool</Link>
-                <Link to="/signup" className="navbar-item">Sign Up</Link>
-                <Link to="/login" className="navbar-item">Login</Link>
-                <Link to="/profile" className="navbar-item">My Profile</Link>
-                <Link to="/" className="navbar-item">Logout</Link>
-            </div>
-        </nav>
+        <div className="Nav is-fixed-top is-pulled-right">
+            <Link className="navmenu-item" to="/stickers" >Sticker Pool</Link>
+            <Link className="navmenu-item" to="/signup" >Sign Up</Link>
+            <Link className="navmenu-item" to="/login" >Login</Link>
+            <Link className="navmenu-item" to="/profile" >My Profile</Link>
+            <Link className="navmenu-item" to="/" >Logout</Link>
+            <Link className="navmenu-item" to="/">Close menu</Link>
+
+        </div>
     )
 }
 
