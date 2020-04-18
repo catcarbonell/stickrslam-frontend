@@ -3,6 +3,7 @@ import Nav from './layout/Nav';
 import Routes from './config/Routes';
 import Alert from './layout/Alert';
 
+
 // REDUX
 import { Provider } from 'react-redux';
 import store from './store';

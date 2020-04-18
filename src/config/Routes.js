@@ -6,16 +6,17 @@ import Stickers from '../components/Stickers';
 import Login from '../auth/Login';
 import Signup from '../auth/Signup';
 import Dashboard from '../components/Dashboard';
+import PrivateRoute from './PrivateRoute';
 
 const Routes = () => {
     return(
         <Switch>
             <Route exact path='/' component={Landing} />
-            <Route exact path='/dashboard' component={Dashboard} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
-            <Route path='/profile' component={Profile} />
-            <Route path='/stickers' component={Stickers} />
+            <PrivateRoute exact path='/profile' component={Profile} />
+            <PrivateRoute exact path='/stickers' component={Stickers} />
+            <PrivateRoute  exact path='/dashboard' component={Dashboard} />
         </Switch>
     )
 }
