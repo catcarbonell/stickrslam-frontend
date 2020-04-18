@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
-
-import axios from 'axios';
 import './Signup.css';
 
-const Signup = ({ setAlert }) => {
+const Signup = ({ setAlert, register, isAuthenticated}) => {
     const [formData, setFormData] = 
         useState({
             username: '',
@@ -23,24 +22,12 @@ const Signup = ({ setAlert }) => {
         if(password !== password2){
             setAlert('Passwords do not match', 'danger')
         } else {
-            const newUser = {
-                username,
-                email,
-                password
-            }
-            try {
-                const config = {
-                    headers: {
-                        "Content-Type" : "application/json"
-                    }
-                }   
-                const body = JSON.stringify(newUser);
-                const res = await axios.post('http://localhost:5000/api/users', body, config)
-                console.log(res.data);
-            } catch(err) {
-                console.error(err.response.data);
-            }
+            // WELCOME COMPONENT WITH SIMPSONS GIF
+            register({ username, email, password });
         }
+    };
+    if(isAuthenticated){
+        return <Redirect to='/dashboard' />
     }
 
     return(
@@ -60,7 +47,6 @@ const Signup = ({ setAlert }) => {
                             placeholder="How would you like to be addressed?" 
                             value={username} 
                             onChange={e => onChange(e)}
-                            required
                         />
                     </div>
                    {/* validation errors go here  */}
@@ -77,7 +63,6 @@ const Signup = ({ setAlert }) => {
                             placeholder="ex: you@you.com" 
                             value={email}
                             onChange={e => onChange(e)}
-                            required 
                         />
                     </div>
                 </div>
@@ -92,7 +77,6 @@ const Signup = ({ setAlert }) => {
                             name="password"
                             value={password}
                             onChange={e => onChange(e)}
-                            required
                         />
                     </div>
                 </div>
@@ -125,6 +109,12 @@ const Signup = ({ setAlert }) => {
 
 Signup.propTypes = {
     setAlert : PropTypes.func.isRequired,
-}
+    register : PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
+};
 
-export default connect(null, { setAlert })(Signup);
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { setAlert, register })(Signup);

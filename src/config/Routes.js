@@ -5,12 +5,13 @@ import Profile from '../components/Profile';
 import Stickers from '../components/Stickers';
 import Login from '../auth/Login';
 import Signup from '../auth/Signup';
-import '../bulma.css';
+import Dashboard from '../components/Dashboard';
 
 const Routes = () => {
     return(
         <Switch>
             <Route exact path='/' component={Landing} />
+            <Route exact path='/dashboard' component={Dashboard} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             <Route path='/profile' component={Profile} />
