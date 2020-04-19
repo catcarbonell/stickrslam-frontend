@@ -27,7 +27,7 @@ const Signup = ({ setAlert, register, isAuthenticated}) => {
         }
     };
     if(isAuthenticated){
-        return <Redirect to='/dashboard' />
+        return <Redirect to='/welcome' />
     }
 
     return(
@@ -38,13 +38,13 @@ const Signup = ({ setAlert, register, isAuthenticated}) => {
             <form className="form" onSubmit={ e => onSubmit(e)}>
                 {/* USERNAME FIELD */}
                 <div className="field">
-                    <label className="label" name="username"> Username/Alias</label>
+                    <label className="label" name="username">Preferred name?</label>
                     <div className="control">
                         <input 
                             className="input" 
                             name="username" 
                             type="text" 
-                            placeholder="How would you like to be addressed?" 
+                            placeholder="Your name? Alias? s/n?" 
                             value={username} 
                             onChange={e => onChange(e)}
                         />
@@ -60,7 +60,7 @@ const Signup = ({ setAlert, register, isAuthenticated}) => {
                             className="input" 
                             name="email" 
                             type="email" 
-                            placeholder="ex: you@you.com" 
+                            placeholder="You will login with this! (ex: you@you.com)" 
                             value={email}
                             onChange={e => onChange(e)}
                         />

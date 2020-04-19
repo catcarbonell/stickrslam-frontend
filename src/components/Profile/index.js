@@ -1,14 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+// import { connect } from 'react-redux';
+// import { createProfile, getCurrentProfile } from '../../actions/profile';
+// import Alert from '../../layout/Alert';
 import './Profile.css';
 
-const Profile = props => {
+const Profile = () => {
     return(
-        <div className="Profile">
-            <h1>Profile</h1>
-        </div>
+        <>
+            <h3 className="title is-3">My Profile</h3> <br />
+            <button className="button"><Link className="btn-link" to="/profile/edit">Edit Profile</Link></button>
+        </>
     )
 }
 
-Profile.propTypes = {};
 export default Profile;

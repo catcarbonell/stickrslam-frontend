@@ -1,0 +1,106 @@
+.btn-link:link, .btn-link:visited {
+    color: #5b4676;
+    background-color: transparent;
+}
+.btn-link:hover {
+    color:#fff;
+}
+
+.Profile-bio {
+    margin: 0 auto;
+    padding: 20px;
+    width: 90%;
+    border-radius: 10px;
+    border: 1px solid  rgba(185,103,255, 0.9);
+    transition: ease 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.Profile-bio:hover{
+    border: 2px solid rgba(185,103,255, 0.9);
+    box-shadow: 3px 5px rgba(185,103,255, 0.5);
+    transition: ease 0.3s;
+    transform: scale(1.1);
+}
+.Profile-bio:focus{
+    border: 2px solid rgba(185,103,255, 0.9);
+    box-shadow: 3px 5px rgba(185,103,255, 0.5);
+    transition: ease 0.3s;
+    transform: scale(1.1);
+}
+
+.form-modal {
+    background: rgba(73,50,103, 0.8);
+    background-size: cover;
+    position: absolute;
+    height: auto;
+    z-index: 99;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+}
+
+.form-modal-body {
+    background: rgba(255,255,255, 0.9);
+    width: 50%;
+    height: auto;
+    border-radius: 20px;
+    padding-top: 30px;
+    margin: 20px auto;
+    z-index: 999;
+}
+
+.form-cta-container {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.profile-input {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 95%;
+    margin: 5px auto;
+    border-radius: 10px;
+    border: 1px solid  rgba(185,103,255, 0.9);
+    transition: ease 0.3s;
+
+}
+
+.profile-input:hover {
+    border: 2px solid rgba(185,103,255, 0.9);
+    box-shadow: 3px 5px rgba(185,103,255, 0.5);
+    transition: ease 0.3s;
+    transform: scale(1.1);
+
+}
+.profile-input:focus {
+    border: 2px solid rgba(185,103,255, 0.9);
+    box-shadow: 3px 5px rgba(185,103,255, 0.5);
+    transition: ease 0.3s;
+    transform: scale(1.1);
+}
+.label {
+    margin: 30px auto 0 auto;
+}
+@media only screen and (max-width: 900px) {
+    html{
+        width: 100vw;
+    }
+    .form {
+        width: 100%;
+        margin: 0;
+    }
+    .form-modal-body {
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+    }
+    .button {
+        transform: scale(1);
+    }
+}

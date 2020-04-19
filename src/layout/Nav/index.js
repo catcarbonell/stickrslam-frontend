@@ -8,9 +8,9 @@ import './Nav.css';
 const Nav = ({ auth: { isAuthenticated, loading }, logout}) => {
     const authLinks = (
         <div className="Nav is-fixed-top is-pulled-right">
-            <Link className="navmenu-item" to="/stickers" >Sticker Pool</Link>
-            <Link className="navmenu-item" to="/profile" >My Profile</Link>
-            <a onClick ={logout} href="#!" className="navmenu-item" >Logout</a>
+            <Link className="navmenu-item" to="/dashboard">Dashboard</Link>
+            <Link className="navmenu-item" to="/profile">My Profile</Link>
+            <a onClick ={logout} href="/" className="navmenu-item" >Logout</a>
             <Link className="navmenu-item" to="/">Close menu</Link>
         </div>
     );

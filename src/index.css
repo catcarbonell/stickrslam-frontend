@@ -7,7 +7,7 @@ body {
     height: 100vh;
     font-family: 'Work Sans', sans-serif;
     font-weight: 500;
-    color: #5b4676;
+    color:rgba(73,50,103, 0.8);
 }
 ::selection {
     color: #fff;
@@ -24,11 +24,7 @@ h1, h2, h3, h4, h5 {
     display: inline-block;
     font-family: 'Space Mono', monospace;
     font-weight: 700;
-    color: #5b4676;
-    background: #fff;
-    box-shadow: 5px 5px rgba(73,50,103, 0.8);
-    padding: 3px 20px;
-    border-radius: 7px;
+    color:  rgba(73,50,103, 0.8);
 }
 
 p {
@@ -38,11 +34,10 @@ p {
 
 /* === LAYOUT === */
 .App-root {
-    /* border: 2px solid orange; */
     margin: auto;
     padding: 50px;
     width: 100vw;
-    height: auto;
+    height: 100vh;
     box-sizing: border-box;
     overflow-x: hidden;
 }
@@ -55,9 +50,10 @@ p {
             rgba(255,113,206,0.7), 
             rgba(255,255,255,1)
         ),
-        url('./assets/ss-bg.jpeg');
+        url('./assets/ss-bg.jpeg'),
+        repeat center center fixed;
     background-size: cover;
-    height: auto;
+    height: 100vh;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -65,6 +61,7 @@ p {
     left: 0px;
     opacity: 0.5; 
     z-index: -1;
+    overflow: auto;
   }
 
   .cta-container {
@@ -84,7 +81,13 @@ p {
     font-weight: 700;
     letter-spacing: 1px;
 }
-
+.title {
+    color:  rgba(73,50,103, 0.8);
+    background: #fff;
+    box-shadow: 5px 5px rgba(73,50,103, 0.8);
+    padding: 3px 20px;
+    border-radius: 7px;
+}
 .subtitle {
     display: inline-block;
     background: rgba(73,50,103, 0.8);

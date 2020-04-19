@@ -1,11 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './Landing.css';
 
-const Landing = () => {
+const Landing = ({ isAuthenticated }) => {
+    if(isAuthenticated) {
+        return <Redirect to='/dashboard' />
+    }
     return(
         <div className="Landing">
-            <h1 className="title is-1">Addicted to <span className="highlight title is-1">Stickers?</span></h1>
+            <h1 className="title is-1">Addicted to Stickers?</h1>
             <br />
             <p className="subtitle is-4">So are we.</p>
             <div className="hero-container">
@@ -20,5 +25,10 @@ const Landing = () => {
         </div>
     )
 }
-
-export default Landing;
+Landing.propTypes = {
+    isAuthenticated: PropTypes.bool,
+}
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+export default connect(mapStateToProps)(Landing);
