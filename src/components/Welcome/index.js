@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Welcome.css';
 import join from '../../assets/join.gif';
 
@@ -13,7 +13,7 @@ const Welcome = () =>{
                     <img src={join} alt="Join usssss..." />
                 </div>
                 <p className="Welcome-p">Take a seat and 
-                    <Link className="Welcome-link" to="/profile/create">setup your profile!</Link>
+                    <Link className="Welcome-link" to="/create">setup your profile!</Link>
                 </p>
             </div>
         </div>

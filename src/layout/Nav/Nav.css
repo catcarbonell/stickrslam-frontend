@@ -17,6 +17,36 @@
     padding: 20px;
     border-radius: 20px;  
 }
+.menu-btn {
+    color: rgb(1,205,254);
+    background: rgba(255, 255, 255, 0.6);
+    border: 5px solid #fff;
+    border-radius: 7px;
+    padding: 13px;
+    border:0;
+    transition: ease 0.3s;
+    opacity: 0.7;
+}
+.menu-btn:hover {
+    background-color: rgb(1,205,254);
+    color: #fff;
+    cursor: pointer;
+    transition: ease 0.3s;
+    opacity: 1;
+}
+.close-btn {
+    background: transparent;
+    border: 0;
+    color: rgb(1,205,254);
+    font-weight: 700;
+    transition: ease 0.3s;
+}
+.close-btn:hover {
+    color: #fff;
+    background: rgb(1,205,254);
+    cursor: pointer;
+    transition: ease 0.3s;
+}
 
 .navmenu-item:link, .navmenu-item:visited {
     border-radius: 5px;

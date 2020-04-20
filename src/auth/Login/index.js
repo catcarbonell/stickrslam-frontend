@@ -25,8 +25,11 @@ const Login = ({ login, isAuthenticated }) => {
 
     return(
         <div className="Login">
-            <h2 className="title is-2">Welcome back!</h2>
+            <div>
+                <h2 className="title is-2">Welcome back!</h2>
+            </div>
             <form className="form" onSubmit={ e => onSubmit(e)}>
+                
                 {/* EMAIL FIELD */}
                 <div className="field">
                     <label className="label">Email</label>
@@ -42,6 +45,7 @@ const Login = ({ login, isAuthenticated }) => {
                     </div>
                 </div>
 
+                {/* PASSWORD FIELD */}
                 <div className="field">
                     <label className="label">Password</label>
                     <div className="control">
@@ -54,6 +58,7 @@ const Login = ({ login, isAuthenticated }) => {
                         />
                     </div>
                 </div>
+
                 <div className="container cta-container">
                     <button className="button" type="submit">Login!</button>
                     <p>Don't have an account? <Link to="/signup">Sign up!</Link></p>

@@ -1,0 +1,85 @@
+.post-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+    height: 500px;
+    margin: 10px;
+}
+.post-title {
+    display: block;
+    font-size: 1.5em;
+    font-weight: 900;
+    width: 100%;
+}
+.post-text {
+    overflow-y: scroll;
+}
+.post-footer {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+}
+.post-footer-btn {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    margin: 5px;
+    padding: 1px;
+
+}
+.post-textarea {
+    margin: 0 auto;
+    padding: 20px;
+    width: 90%;
+    border-radius: 10px;
+    border: 1px solid  rgba(185,103,255, 0.9);
+    transition: ease 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.form-modal-body {
+    background: rgba(255,255,255, 0.9);
+    width: 50%;
+    height: auto;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px auto;
+    z-index: 999;
+}
+.box {
+    border-radius: 40px;
+}
+
+.post-input {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 95%;
+    margin: 5px auto;
+    border-radius: 10px;
+    border: 1px solid  rgba(185,103,255, 0.9);
+    transition: ease 0.3s;
+
+}
+
+.post-input:hover {
+    border: 2px solid rgba(185,103,255, 0.9);
+    box-shadow: 3px 5px rgba(185,103,255, 0.5);
+    transition: ease 0.3s;
+    transform: scale(1.1);
+
+}
+.post-input:focus {
+    border: 2px solid rgba(185,103,255, 0.9);
+    box-shadow: 3px 5px rgba(185,103,255, 0.5);
+    transition: ease 0.3s;
+    transform: scale(1.1);
+}
+
+.form-cta-container {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

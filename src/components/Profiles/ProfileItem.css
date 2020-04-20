@@ -1,0 +1,33 @@
+.ProfileItem {
+    border: 3px solid #333;
+    width: 300px;
+    height: 350px;
+    margin: 10px 20px;
+    transition: ease 0.3;
+}
+.ProfileItem:hover{
+    border: 3px solid #b967ff;
+    transition: ease 0.3;
+}
+
+.Profile-avatar-container {
+    width: 55%;
+    margin: 0 auto;
+}
+
+img.Profile-avatar {
+    width: auto;
+    margin: 10px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.socials {
+    margin: 10px auto;
+}
+path {
+    color:rgba(255,113,206,0.6);
+}
+
+path:hover {
+    color:rgba(255,113,206,1);
+}

@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import { createProfile } from '../../actions/profile';
 
 
-const CreateProfile = ({ createProfile, history,  }) => {
+const CreateProfile = ({ createProfile, history  }) => {
     const [formData, setFormData] = useState({
+        username: '',
         website: '',
         twitter: '',
         facebook: '',
@@ -15,6 +16,7 @@ const CreateProfile = ({ createProfile, history,  }) => {
     });
 
     const {
+        username,
         website,
         twitter,
         facebook,
@@ -36,9 +38,21 @@ const CreateProfile = ({ createProfile, history,  }) => {
         <h3 className="title is-3">Create My Profile</h3>
 
         <form className="form" onSubmit={e => onSubmit(e)}>
-        {/* USERNAME FIELD */}
+
         <div className="form-modal-body">
-            
+             {/* USERNAME FIELD */}
+             <div className="field">
+                <label className="label" name="website">Username</label>
+                <div className="control">
+                    <input 
+                        className="profile-input" 
+                        name="username" 
+                        type="text" 
+                        value={username}
+                        onChange={ e => onChange(e) }
+                    />
+                </div>
+            </div>
             {/* WEBSITE FIELD */}
             <div className="field">
                 <label className="label" name="website">Website URL</label>
@@ -107,7 +121,6 @@ const CreateProfile = ({ createProfile, history,  }) => {
 
             <div className="container form-cta-container">
                 <input className="button btn-link" type="submit" value="Save Profile!" />
-                {/* <button className="button" onClick={() => toggleEdit(!displayEdit)}>Cancel Edit</button> */}
             </div>
             </div>
         </form>

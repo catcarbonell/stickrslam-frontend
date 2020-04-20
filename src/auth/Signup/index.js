@@ -9,21 +9,19 @@ import './Signup.css';
 const Signup = ({ setAlert, register, isAuthenticated}) => {
     const [formData, setFormData] = 
         useState({
-            username: '',
             email: '',
             password: '',
             password2: ''
         }
     );
-    const { username, email, password, password2 } = formData;
+    const { email, password, password2 } = formData;
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value });
     const onSubmit = async e => {
         e.preventDefault();
         if(password !== password2){
             setAlert('Passwords do not match', 'danger')
         } else {
-            // WELCOME COMPONENT WITH SIMPSONS GIF
-            register({ username, email, password });
+            register({ email, password });
         }
     };
     if(isAuthenticated){
@@ -32,26 +30,13 @@ const Signup = ({ setAlert, register, isAuthenticated}) => {
 
     return(
         <div className="content Signup">
-            <h2 className="title is-2">Join us!</h2>
-            <br />
-            <p className="subtitle is-5">You'll love it here!</p>
+            <div>
+                <h2 className="title is-2">Join us!</h2>
+                <br />
+                <p className="subtitle is-5">You'll love it here!</p>
+            </div>
             <form className="form" onSubmit={ e => onSubmit(e)}>
-                {/* USERNAME FIELD */}
-                <div className="field">
-                    <label className="label" name="username">Preferred name?</label>
-                    <div className="control">
-                        <input 
-                            className="input" 
-                            name="username" 
-                            type="text" 
-                            placeholder="Your name? Alias? s/n?" 
-                            value={username} 
-                            onChange={e => onChange(e)}
-                        />
-                    </div>
-                   {/* validation errors go here  */}
-                </div>
-
+                
                 {/* EMAIL FIELD */}
                 <div className="field">
                     <label className="label" name="email">Email</label>
@@ -101,7 +86,6 @@ const Signup = ({ setAlert, register, isAuthenticated}) => {
                     </p>
                 </div>
             </form>
-            
         </div>
         
     )

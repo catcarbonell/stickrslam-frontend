@@ -2,7 +2,10 @@ import axios from 'axios';
 import { setAlert } from './alert';
 import {
     GET_PROFILE,
-    PROFILE_ERROR
+    GET_PROFILES,
+    PROFILE_ERROR,
+    ACCOUNT_DELETED,
+    CLEAR_PROFILE
 } from './types';
 
 // Get current user's profile
@@ -20,6 +23,40 @@ export const getCurrentProfile = () => async dispatch => {
         });
     }
 };
+
+// Get all profiles
+export const getProfiles = () => async dispatch => {
+    try {
+        const res = await axios.get('http://localhost:5000/api/profile');
+        dispatch({
+            type: GET_PROFILES,
+            payload: res.data
+        })
+    } catch(err) {
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: { msg: err.response.data.msg, status: err.response.status }
+        });
+    }
+};
+
+// Get profile by id
+export const getProfileById = userId => async dispatch => {
+    try {
+        const res = await axios.get(`http://localhost:5000/api/profile/user/${userId}`);
+        dispatch({
+            type: GET_PROFILE,
+            payload: res.data
+        });
+    } catch(err) {
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: { msg: err.response.data.msg, status: err.response.status }
+        });
+    }
+};
+
+
 
 // Create/Update profile
 export const createProfile = (formData, history, edit = false) => async dispatch => {
@@ -43,7 +80,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
             history.push('/dashboard');
         }
         if(edit) {
-            history.push('/profile');
+            history.push('/profiles');
         }
 
     } catch (err) {
@@ -57,3 +94,22 @@ export const createProfile = (formData, history, edit = false) => async dispatch
         })
     }
 } 
+
+// Delete account & profile
+export const deleteAccount = ()  => async dispatch => {
+    if(window.confirm('Are you sure? This can NOT be undone.')){
+        try {
+            // const res = await axios.delete(`http://localhost:5000/api/profile`)
+            dispatch({type: CLEAR_PROFILE});
+            dispatch({type: ACCOUNT_DELETED});
+            dispatch(setAlert('Account deleted. :( ', 'help'));
+        } catch (err) {
+            dispatch({
+                type: PROFILE_ERROR,
+                payload: { msg: err.response.statusText, status: err.response.status }
+            })
+        }
+    }
+}
+
+ 
